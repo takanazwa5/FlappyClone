@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://1pws1pbs5ubw"]
+
+[ext_resource type="Texture2D" uid="uid://b7vj4kpy5udb0" path="res://scenes/floor_chunk/base.png" id="1_83xnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed2te"]
+size = Vector2(336, 112)
+
+[node name="FloorChunk" type="Sprite2D"]
+texture = ExtResource("1_83xnp")
+
+[node name="VOSN" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-168, -56)
+rect = Rect2(0, 0, 336, 112)
+
+[node name="Area" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_ed2te")

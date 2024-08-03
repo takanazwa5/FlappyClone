@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp8brmv8c3epw"]
+
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_ln0mq"]
+[ext_resource type="PackedScene" uid="uid://bsh80y6egouqp" path="res://features/enviro/environment.tscn" id="2_solm0"]
+[ext_resource type="PackedScene" uid="uid://b7xisfiwa7e2o" path="res://features/bird/bird.tscn" id="3_q0a14"]
+[ext_resource type="Script" path="res://label.gd" id="4_vfjpe"]
+[ext_resource type="Texture2D" uid="uid://deivybkqurfoe" path="res://assets/sprites/message.png" id="5_phsiu"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ln0mq")
+
+[node name="Environment" parent="." instance=ExtResource("2_solm0")]
+unique_name_in_owner = true
+
+[node name="Bird" parent="." instance=ExtResource("3_q0a14")]
+unique_name_in_owner = true
+position = Vector2(90, 184)
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_vfjpe")
+
+[node name="TitleScreenSprites" type="Node" parent="."]
+
+[node name="Tap" type="Sprite2D" parent="TitleScreenSprites"]
+position = Vector2(144, 201)
+texture = ExtResource("5_phsiu")
+region_enabled = true
+region_rect = Rect2(0, 158, 184, 109)
+
+[node name="GetReady" type="Sprite2D" parent="TitleScreenSprites"]
+position = Vector2(144, 95)
+texture = ExtResource("5_phsiu")
+region_enabled = true
+region_rect = Rect2(0, 95, 184, 62)

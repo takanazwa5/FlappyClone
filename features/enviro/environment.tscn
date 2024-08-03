@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsh80y6egouqp"]
+
+[ext_resource type="Script" path="res://features/enviro/environment.gd" id="1_1sr2b"]
+[ext_resource type="PackedScene" uid="uid://1pws1pbs5ubw" path="res://scenes/floor_chunk/floor_chunk.tscn" id="2_1c02f"]
+[ext_resource type="Texture2D" uid="uid://lnw7315gl00y" path="res://features/enviro/background-day.png" id="2_we176"]
+[ext_resource type="PackedScene" uid="uid://82mcrvltogdg" path="res://scenes/pipe/pipe.tscn" id="4_53xpm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vkwcl"]
+
+[node name="Environment" type="Node2D"]
+script = ExtResource("1_1sr2b")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_we176")
+offset = Vector2(144, 256)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 401)
+shape = SubResource("WorldBoundaryShape2D_vkwcl")
+
+[node name="FloorChunks" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="FloorChunk" parent="FloorChunks" instance=ExtResource("2_1c02f")]
+position = Vector2(168, 456)
+
+[node name="FloorChunk2" parent="FloorChunks" instance=ExtResource("2_1c02f")]
+position = Vector2(504, 456)
+
+[node name="Pipes" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Pipe" parent="Pipes" instance=ExtResource("4_53xpm")]
+position = Vector2(504, 150)

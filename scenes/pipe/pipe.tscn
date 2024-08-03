@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://82mcrvltogdg"]
+
+[ext_resource type="Texture2D" uid="uid://4riuir3hdhxs" path="res://scenes/pipe/pipe-green.png" id="1_507og"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r2oh"]
+size = Vector2(48, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xym1"]
+size = Vector2(26, 80)
+
+[node name="Pipe" type="Node2D"]
+z_index = -1
+
+[node name="PipeBottom" type="Sprite2D" parent="."]
+position = Vector2(0, 200)
+texture = ExtResource("1_507og")
+
+[node name="Area" type="Area2D" parent="PipeBottom"]
+position = Vector2(0, -200)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeBottom/Area"]
+position = Vector2(0, 200)
+shape = SubResource("RectangleShape2D_5r2oh")
+
+[node name="PipeTop" type="Sprite2D" parent="."]
+position = Vector2(0, -200)
+rotation = -3.14159
+texture = ExtResource("1_507og")
+
+[node name="Area" type="Area2D" parent="PipeTop"]
+position = Vector2(-0.000507036, -200)
+rotation = 3.14159
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTop/Area"]
+position = Vector2(0, -200)
+shape = SubResource("RectangleShape2D_5r2oh")
+
+[node name="VOSN" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-26, -10, 52, 20)
+
+[node name="PointArea" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointArea"]
+position = Vector2(13, 0)
+shape = SubResource("RectangleShape2D_6xym1")
