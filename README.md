@@ -1,2 +1,2 @@
 # FlappyClone
- FlappyBird clone that I made just to pratice godot
+ Playable on [itch.io](https://takanazwa5.itch.io/flappyclone)
